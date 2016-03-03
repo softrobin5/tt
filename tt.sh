@@ -10,7 +10,7 @@ for i in `seq $max`
 do
     echo "Docker start No. $i"
         docker run -d -p 808$i:3000 software /bin/bash /var/www/app/start.sh
-	echo  "     server   Tuktuk$i localhost:808$i maxconn $MAXCONN weight 10 check" >> $HACONFIGSERVERS
+	echo  "     server   Tt$i localhost:808$i maxconn $MAXCONN weight 10 check" >> $HACONFIGSERVERS
 	echo "" >> $HACONFIGSERVERS
 done
 
