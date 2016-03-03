@@ -10,7 +10,7 @@ for i in `seq $max`
 do
     echo "Docker start No. $i"
         docker run -d -p 808$i:3000 software /bin/bash /var/www/app/start.sh
-	echo  "     server   Tt$i localhost:808$i maxconn $MAXCONN weight 10 check" >> $HACONFIGSERVERS
+	echo  "     server   ttserver$i localhost:808$i maxconn $MAXCONN" >> $HACONFIGSERVERS
 	echo "" >> $HACONFIGSERVERS
 done
 
@@ -23,5 +23,5 @@ then
        cat $TMPHACONFIG > $HACONFIG
 
        echo "Reloading HAProxy..."
-#       /etc/init.d/haproxy reload
+       /etc/init.d/haproxy reload
 fi
